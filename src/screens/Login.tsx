@@ -7,7 +7,6 @@ import * as Yup from 'yup';
 import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 import {signInUser} from '../services/firebase';
 
-// Define the types for the form values
 interface LoginFormValues {
   email: string;
   password: string;
@@ -107,7 +106,7 @@ const LoginScreen: React.FC = () => {
       <Snackbar
         visible={visible}
         onDismiss={onDismissSnackBar}
-        duration={3000} // Duration in milliseconds
+        duration={3000}
         action={{
           label: 'Close',
           onPress: () => {
@@ -120,7 +119,6 @@ const LoginScreen: React.FC = () => {
   );
 };
 
-// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
