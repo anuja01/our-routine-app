@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {TextInput, Button, Text} from 'react-native-paper';
+import {TextInput, Button, Text, useTheme} from 'react-native-paper';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {signUpUser} from '../services/firebase';
@@ -18,6 +18,8 @@ const signupValidationSchema = Yup.object().shape({
 
 const Signup: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+  const {colors} = useTheme();
+  const styles = makeStyles(colors);
   return (
     <View style={styles.container}>
       <Formik
@@ -65,7 +67,7 @@ const Signup: React.FC = () => {
 
             <Button
               mode="contained"
-              onPress={handleSubmit}
+              onPress={() =>handleSubmit()}
               style={styles.button}>
               Sign Up
             </Button>
@@ -76,7 +78,7 @@ const Signup: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const makeStyles = (colors: any) =>StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   errorText: {
-    color: 'red',
+    color: colors.error,
     fontSize: 12,
     marginBottom: 10,
   },

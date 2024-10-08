@@ -12,12 +12,13 @@ import {PaperProvider} from 'react-native-paper';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import StackNav from './src/navigation/StackNavigation';
+import {customTheme} from './src/theme/theme';
 
 
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView>
-      <PaperProvider>
+      <PaperProvider theme={customTheme}>
         <SafeAreaProvider>
           <NavigationContainer>
             <StackNav />

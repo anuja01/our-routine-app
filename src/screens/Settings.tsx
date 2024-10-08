@@ -24,7 +24,7 @@ const Settings: React.FC = () => {
 
       <Text style={styles.email}>Email: {user?.email}</Text>
 
-      <Button mode="contained" onPress={handleLogout}>
+      <Button mode="contained" onPress={() => handleLogout()}>
         Logout
       </Button>
     </SafeAreaView>
